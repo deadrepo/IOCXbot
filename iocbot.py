@@ -34,18 +34,18 @@ def get_latest_ioc():
             # Trim the name until the first dot (before 'public services')
             trimmed_ioc_name = ioc_name.split('.')[0] + "."
 
-            # Get adversary and first indicator
-            adversary = first_result.get('adversary', 'Unknown')
+          # Get adversary and first indicator
+            adversary = first_result.get('adversary', '')
             first_indicator = first_result['indicators'][0]['indicator']
 
             # Replace .com with [dot]com
             first_indicator = first_indicator.replace('.com', '[dot]com')
 
-            # Construct the IOC content with timestamp for uniqueness
-            tweet_content = f"New IOC Alert →\n\n" \
-                             f"{trimmed_ioc_name}\n\n" \
-                             f"Adversary: {adversary}\n\n" \
-                             f"Indicator: {first_indicator}"
+            # Construct the tweet content with or without the adversary
+            tweet_content = f"New IOC Alert →\n\n{trimmed_ioc_name}\n\n"
+            if adversary:  # Only add adversary if it's not empty
+                tweet_content += f"Adversary: {adversary}\n\n"
+            tweet_content += f"Indicator: {first_indicator}"
 
             return tweet_content, trimmed_ioc_name
         else:
