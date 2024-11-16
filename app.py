@@ -9,11 +9,11 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Twitter API credentials
-api_key = "v3eBMl6Jf6OYXsn9RqwS0zvrT"
-api_secret = "CBObgJalMyopVjwt9p4JYwm1Fbg4vxwEABha3zfJqXyBBfhcEs"
-bearer_token = "AAAAAAAAAAAAAAAAAAAAAGiLwwEAAAAAsV8z5QreyqnmJJCzsykS0akTu5U%3DJbLWVY9QZ4pDnzOgPyJv10x0MXLQjh7XLTWzBeDI22N6rsVhEQ"
-access_token = "1855504506454491136-DRgM24DGusF0qBAK95B6hDevi7CDWp"
-access_token_secret = "WQJJCSqGuxUD7IJwmUqf3t1Z6GjA4wG1Jjr523fz8eQKU"
+api_key = ""
+api_secret = ""
+bearer_token = ""
+access_token = ""
+access_token_secret = ""
 
 # Authenticate with Twitter
 client = tweepy.Client(bearer_token, api_key, api_secret, access_token, access_token_secret)
@@ -24,7 +24,7 @@ api = tweepy.API(auth)
 def get_latest_ioc():
     url = "https://otx.alienvault.com/api/v1/pulses/subscribed"
     headers = {
-        'X-OTX-API-KEY': '3e8d87461d891ed5defdb37347af501379c56b2701dfe4ff6466d91607f48604'
+        'X-OTX-API-KEY': ''
     }
     try:
         response = requests.get(url, headers=headers, verify=False)  # Disable SSL verification
